@@ -12,10 +12,13 @@ dependencies {
             "org.junit.jupiter:junit-jupiter:5.9.3")
 }
 
-tasks.withType(JavaCompile) {
+compileTestJava {
     options.encoding = 'UTF-8'
 }
 
 test {
-    useJUnitPlatform()
+
+    systemProperty "chromeoptions.prefs","intl.accept_languages=en"
+
+    useJUnitPlatform{}
 }
